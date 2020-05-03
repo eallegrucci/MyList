@@ -16,6 +16,12 @@ public class webView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wikiview);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent i = getIntent();
+        String ref = i.getStringExtra("ref");
+
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.setWebViewClient(new WebViewClient());
         WebSettings settings = mWebView.getSettings();
@@ -24,10 +30,6 @@ public class webView extends AppCompatActivity {
         settings.setAppCacheEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setUseWideViewPort(true);
-
-        Intent i = getIntent();
-        String ref = i.getStringExtra("ref");
-
         mWebView.loadUrl(ref);
     }
 
