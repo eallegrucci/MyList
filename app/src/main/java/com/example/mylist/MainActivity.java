@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -44,11 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 "https://en.wikipedia.org/wiki/Nintendo_Switch"));
     }
 
-//    public void itemClick(int position, String text) {
-//        listItems.get(position).changeView("Clicked");
-//        mAdapter.notifyItemChanged(position);
-//    }
-
     public void buildList() {
         mRecyclerView = findViewById(R.id.list);
         mRecyclerView.setHasFixedSize(true);
@@ -61,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new listAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                //itemClick(position, "Clicked");
                 String ref = listItems.get(position).getReference();
                 Intent i = new Intent(MainActivity.this, webView.class);
                 i.putExtra("ref", ref);
